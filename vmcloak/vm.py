@@ -111,6 +111,13 @@ class VirtualBox(Machinery):
         # is "good enough".
         self._call("storagectl", self.name, name="IDE", add="ide")
         if multi:
+            self._call("modifyhd", hdd_path, type_="normal")
+            # Workaround for newer versions of virtualbox
+            self._call("storageattach", self.name, storagectl="IDE",
+                    type_="hdd", device=0, port=0, medium=hdd_path)
+            self._call("storageattach", self.name, storagectl="IDE",
+                    type_="hdd", device=0, port=0, medium="none")
+            # End workaround
             self._call("modifyhd", hdd_path, type_="multiattach")
         else:
             self._call("modifyhd", hdd_path, type_="normal")
