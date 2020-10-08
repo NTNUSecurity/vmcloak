@@ -15,7 +15,7 @@ class AdobePdf(Dependency):
     recommended = True
     exes = [{
         "version": "9.0.0",
-        "url": "https://cuckoo.sh/vmcloak/AdbeRdr90_en_US.exe",
+        "url": "ftp://ftp.adobe.com/pub/adobe/reader/win/9.x/9.0/enu/AdbeRdr90_en_US.exe",
         "sha1": "8faabd08289b9a88023f71136f13fc4bd3290ef0",
     }, {
         "version": "9.1.0",
